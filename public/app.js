@@ -42,10 +42,16 @@ function node(tag, className, value) {
 }
 
 async function api(url, options) {
+  const activity = apiActivity.start(url, options);
   let response;
   try { response = await fetch(url, options); }
-  catch { throw new Error('No se pudo conectar con el servidor. Comprueba que siga en ejecución e inténtalo de nuevo.'); }
+  catch {
+    const message = 'No se pudo conectar con el servidor. Comprueba que siga en ejecución e inténtalo de nuevo.';
+    apiActivity.finish(activity, { error: message });
+    throw new Error(message);
+  }
   const data = await response.json().catch(() => null);
+  apiActivity.finish(activity, { status: response.status, ok: response.ok, data });
   if (!response.ok) throw new Error(data?.error || `La solicitud no se pudo completar (${response.status}).`);
   if (data === null) throw new Error('El servidor devolvió una respuesta inesperada.');
   return data;

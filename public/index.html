@@ -7,6 +7,7 @@
   <title>Usuarios y mascotas</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22/%3E">
   <link rel="stylesheet" href="/styles.css">
+  <script src="/api-monitor.js" defer></script>
   <script src="/app.js" defer></script>
 </head>
 <body>
@@ -25,7 +26,15 @@
       <div id="records" class="records" aria-busy="true"></div>
       <div id="empty-state" class="empty-state" hidden><h3 id="empty-title">No hay mascotas registradas.</h3><p id="empty-description">Registra una mascota. Sus datos y fotos aparecerán aquí.</p><button type="button" class="button secondary" id="empty-add">Registrar la primera mascota<span data-icon="arrow"></span></button></div>
     </section>
-    
+    <details class="api-monitor" id="api-monitor">
+      <summary>Actividad de la API <span id="api-monitor-count" class="api-monitor-count">0</span></summary>
+      <div class="api-monitor-panel">
+        <div class="api-monitor-heading"><p>Peticiones de esta pestaña. Abre una fila para ver los datos enviados y la respuesta.</p><button type="button" class="button subtle" id="api-monitor-clear" disabled>Limpiar actividad</button></div>
+        <p id="api-monitor-empty" class="api-monitor-empty">Todavía no hay peticiones. Usa los formularios o pulsa Actualizar.</p>
+        <div id="api-monitor-list" class="api-monitor-list" aria-label="Últimas peticiones a la API"></div>
+        <p class="api-monitor-footnote">Se conservan las últimas 40 peticiones hasta recargar la página.</p>
+      </div>
+    </details>
   </main>
 
   <dialog id="record-dialog" class="modal" aria-labelledby="form-title">
