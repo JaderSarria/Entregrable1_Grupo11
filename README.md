@@ -9,8 +9,8 @@ Implementación de «Especificación Entregable 1.docx»: Node.js 18+, Express, 
 Clonar el repositorio y ejecutar:
 
 ```sh
-git clone https://github.com/JaderSarria/Entregrable1_Grupo7_.git
-cd Entregrable1_Grupo7_
+git clone https://github.com/JaderSarria/Entregrable1_Grupo11_.git
+cd Entregrable1_Grupo11_
 npm ci
 npm start
 ```
@@ -133,6 +133,3 @@ Las pruebas utilizan datos temporales y comprueban peticiones reales, respuestas
 
 Todas las operaciones propias de archivos usan exclusivamente `node:fs/promises` con async/await. Se serializan las modificaciones por recurso y se escribe primero un archivo temporal, seguido de rename, para evitar actualizaciones perdidas dentro de un proceso. Los JSON comienzan vacíos; los ID son enteros positivos generados como máximo actual + 1. No ejecutar varias instancias escribiendo sobre los mismos JSON. La limpieza de imágenes sucede después de guardar los datos; si esa limpieza falla, la API devuelve 500 aunque el cambio de datos ya se haya guardado. El ejercicio no incluye autenticación ni autorización.
 
-## Repositorio
-
-Versión oliva del proyecto: [JaderSarria/Entregrable1_Grupo7_](https://github.com/JaderSarria/Entregrable1_Grupo7_). Incluye el backend y la interfaz de esta versión, con sus etapas organizadas en commits.
