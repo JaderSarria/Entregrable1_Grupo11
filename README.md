@@ -1,4 +1,4 @@
-# Entregrable1_Grupo7_ — API REST de usuarios y mascotas
+# Entregrable1_Grupo11_ — API REST de usuarios y mascotas
 
 Interfaz sencilla en español, sin marca ni logotipos. Incluye dos secciones: Mascotas y Usuarios.
 
